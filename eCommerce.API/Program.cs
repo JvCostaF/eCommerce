@@ -1,9 +1,17 @@
+using eCommerce.Database;
 using eCommerce.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 // Add services to the container.
+
+// Create connection with DB
+builder.Services.AddDbContext<eCommerceContext>(
+    options => options.UseSqlServer(configuration.GetConnectionString("eCommerce"))
+);
 
 builder.Services.AddControllers();
 
