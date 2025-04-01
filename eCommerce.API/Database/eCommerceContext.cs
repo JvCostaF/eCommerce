@@ -17,5 +17,10 @@ namespace eCommerce.Database
             3) Adicionar o serviço que usa o SQLServer se conectando em cada ambiente específico;
         */
 
+        public eCommerceContext(DbContextOptions<eCommerceContext> options) : base(options)
+        {
+
+        }
+
     }
 }
